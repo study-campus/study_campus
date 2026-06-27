@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Study Campus | 나의 완벽한 학습 파트너</title>
+    
+    <link rel="manifest" href="./manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <script defer src="./js/app.js"></script>
+    <script defer src="./js/pwa.js"></script>
+</head>
+<body>
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <h1 class="logo"><a href="./index.html">StudyCampus</a></h1>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="#high1">고1·2</a></li>
+                    <li><a href="#high3">고3·N수</a></li>
+                    <li><a href="#teachers">선생님</a></li>
+                </ul>
+            </nav>
+            <div class="header-util">
+                <a href="#" class="btn btn-outline">로그인</a>
+                <button id="mobileMenuBtn" class="mobile-toggle-btn" aria-label="메뉴 열기">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobileSidebar" class="mobile-sidebar">
+        <div class="sidebar-content">
+            <button id="closeSidebarBtn" class="close-btn" aria-label="메뉴 닫기">&times;</button>
+            <ul>
+                <li><a href="#high1">고1·2 강좌</a></li>
+                <li><a href="#high3">고3·N수 강좌</a></li>
+                <li><a href="#teachers">선생님 소개</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container hero-container">
+                <h2>원하는 대학을 향한 첫걸음,<br><strong>Study Campus</strong>가 함께합니다.</h2>
+                <a href="#courses" class="btn btn-primary">추천 강좌 보기</a>
+            </div>
+        </section>
+
+        <section class="quick-links-grid container">
+            <button class="quick-item" data-action="classroom">📖 내 강의실</button>
+            <button class="quick-item" data-action="exams">📝 기출문제</button>
+            <button class="quick-item" data-action="planner">🎯 학습플래너</button>
+            <button class="quick-item" data-action="qna">❓ 질문게시판</button>
+        </section>
+    </main>
+</body>
+</html>

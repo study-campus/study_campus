@@ -1,0 +1,63 @@
+:root {
+    --primary: #0056b3;
+    --secondary: #ffc107;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --max-width: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    -webkit-tap-highlight-color: transparent; /* 모바일 터치 시 파란 깜빡임 제거 */
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+/* === Z-Index 계층도 (겹침/먹통 현상 원천 차단) === */
+/* Header: 1000 | Overlay: 2000 | Sidebar: 3000 */
+
+.main-header {
+    background: #fff; border-bottom: 1px solid #ddd;
+    position: sticky; top: 0; z-index: 1000;
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+.logo a { font-size: 24px; font-weight: 800; color: var(--primary); }
+.gnb ul { display: flex; gap: 30px; font-weight: 600; }
+.header-util { display: flex; align-items: center; gap: 10px; }
+
+.btn { padding: 10px 20px; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; min-height: 44px; /* 애플 터치 규격 준수 */ }
+.btn-primary { background: var(--secondary); color: #333; }
+.btn-outline { border: 1px solid var(--primary); color: var(--primary); background: transparent; }
+
+/* 모바일 메뉴 오버레이 (뒷배경 어두워짐) */
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 2000;
+    opacity: 0; visibility: hidden; transition: 0.3s ease;
+}
+.overlay.active { opacity: 1; visibility: visible; }
+
+.mobile-sidebar {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: #fff; z-index: 3000; transition: right 0.3s ease;
+}
+.mobile-sidebar.active { right: 0; }
+.sidebar-content { padding: 20px; }
+.close-btn { font-size: 30px; background: none; border: none; cursor: pointer; float: right; padding: 10px; }
+
+/* 메인 배너 및 퀵메뉴 */
+.hero-section { background: var(--primary); color: #fff; padding: 60px 0; text-align: center; }
+.quick-links-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: -30px; }
+.quick-item { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #ddd; font-weight: bold; cursor: pointer; }
+
+/* 반응형 모바일 */
+@media (max-width: 768px) {
+    .gnb { display: none; }
+    .mobile-toggle-btn { display: flex; width: 44px; height: 44px; background: none; border: none; flex-direction: column; justify-content: center; gap: 5px; }
+    .mobile-toggle-btn span { display: block; width: 24px; height: 3px; background: #333; margin: 0 auto; }
+    .quick-links-grid { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
+}
